@@ -3,7 +3,7 @@ const bodyParser=require('body-parser');
 const app= express();
 
 const id={
-username: 'password'
+Username: 'Password'
 }
 
 const port=process.env.PORT || 2018;
@@ -16,10 +16,10 @@ app.post('*',(req,res)=>{
 const {username, password}= req.body;
 console.log('yo');
 console.log(req.body);
-if(!username || !password) return res.status(400).send('bad request');
-if(!id[username]) return res.status(403).send('incorrect username or password');
-if(id[username]!=password) return res.status(403).send('incorrect password');
-return res.status(200).send();
+if(!username || !password) return res.status(400).json({'ans':'please give valid user name and password'});
+if(!id[username]) return res.status(403).json({'ans':'wrong username'})
+if(id[username]!=password) return res.status(403).json({'ans':'incorrect password'});
+return res.status(200).json( {"ans": " correct username"} );
 })
 
 app.get('/', function (req, res) {
