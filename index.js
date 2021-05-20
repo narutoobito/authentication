@@ -10,7 +10,7 @@ const port=process.env.PORT || 2018;
 
 app.use(express.json());
 
-app.listen(2018, ()=> console.log(`running at ${process.env.PORT}`));
+app.listen(2018, ()=> console.log(`running at ${port}`));
 
 app.post('*',(req,res)=>{
 const {username, password}= req.body;
