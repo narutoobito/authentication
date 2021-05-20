@@ -8,9 +8,9 @@ Username: 'Password'
 
 const port=process.env.PORT || 2018;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
-app.listen(2018, ()=> console.log('running at 2018'));
+app.listen(2018, ()=> console.log(`running at ${PORT}`));
 
 app.post('*',(req,res)=>{
 const {username, password}= req.body;
