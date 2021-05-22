@@ -1,13 +1,12 @@
-const express=require('express');
-const bodyParser=require('body-parser');
-const app= express();
+const express= require('express');
+const app= express()
 const path = require('path')
 
 const id={
 Username: 'Password'
 }
 
-const port=process.env.PORT || 2018;
+const port = process.env.PORT || 2018;
 
 app.use(express.json());
 
