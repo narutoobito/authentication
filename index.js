@@ -1,6 +1,7 @@
 const express=require('express');
 const bodyParser=require('body-parser');
 const app= express();
+const path = require('path')
 
 const id={
 Username: 'Password'
@@ -10,7 +11,12 @@ const port=process.env.PORT || 2018;
 
 app.use(express.json());
 
-app.listen(2018, ()=> console.log(`running at ${port}`));
+app.get('/get', function (req, res) {
+  res.sendFile(path.join(__dirname, 'index.html'))
+})
+
+
+app.listen(2018, ()=> console.log(`running at @${port}`));
 
 app.post('*',(req,res)=>{
 const {username, password}= req.body;
@@ -22,9 +28,6 @@ if(id[username]!=password) return res.status(403).json({'ans':'incorrect passwor
 return res.status(200).json( {"ans": " correct username"} );
 })
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
 
 //app.post('/', function (req, res) {
 //   console.log("Got a POST request for the homepage");
