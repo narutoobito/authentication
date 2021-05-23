@@ -15,7 +15,7 @@ app.get('/get', function (req, res) {
 })
 
 
-app.listen(2018, ()=> console.log(`running at @${port}`));
+app.listen(port, ()=> console.log(`running at @${port}`));
 
 app.post('*',(req,res)=>{
 const {username, password}= req.body;
